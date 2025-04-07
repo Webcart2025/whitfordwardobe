@@ -1,0 +1,65 @@
+/* .logo{
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+.category{
+    font-weight: 400;
+}
+
+
+.blur-bg {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px); 
+  }
+   */
+
+   /* Example CSS */
+/* .logo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+  }
+  
+  .sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+  }
+  
+  .shadow-md {
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  } */
+  
+  .logo {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+  }
+  
+  .sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+  }
+  
+  .shadow-md {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+  }
+  
+  @keyframes marquee {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  

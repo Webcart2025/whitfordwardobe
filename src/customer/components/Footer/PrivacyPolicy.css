@@ -1,0 +1,26 @@
+.privacy-policy h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    padding: 40px;
+  }
+  
+  .privacy-policy section {
+    padding: 20px;
+    margin-bottom: 15px;
+  
+  }
+  .content-wrapper {
+    display: flex; /* Use flexbox to arrange <h2> and <p> side by side */
+    align-items: flex-start; /* Align content at the top */
+    gap: 20px; /* Space between <h2> and <p> */
+  }
+  
+  @media (max-width: 600px) {
+    .privacy-policy h1 {
+      font-size: 2rem;
+    }
+  
+    .privacy-policy section {
+      padding: 15px;
+    }    
+  }

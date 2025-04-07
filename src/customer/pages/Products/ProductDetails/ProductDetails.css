@@ -1,0 +1,81 @@
+.product-details-container {
+  padding: 2rem;
+}
+
+.product-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.image-section {
+  width: 40%;
+}
+
+.thumbnail-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+}
+
+.main-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 1rem;
+  cursor: zoom-in;
+}
+
+.details-section {
+  width: 60%;
+}
+
+.business-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.ratings, .pricing, .assurance {
+  margin-top: 1rem;
+}
+
+.selling-price {
+  font-weight: bold;
+  color: teal;
+  margin-right: 1rem;
+}
+
+.mrp-price {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.discount {
+  color: green;
+  font-weight: bold;
+}
+
+.size-selector, .quantity-selector {
+  margin-top: 1.5rem;
+}
+
+.action-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.product-description {
+  margin-top: 1.5rem;
+  color: #555;
+}

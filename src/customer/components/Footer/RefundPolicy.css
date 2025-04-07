@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .refund-policy {
+    padding: 20px;
+    margin: 30px;
+    width: 100%;
+  }
+  
+  .section {
+    margin: 40px auto;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  /* Media Query for smaller screens */
+  @media (max-width: 600px) {
+    .section h2 {
+      font-size: 20px;
+    }
+  
+    .section p {
+      font-size: 14px;
+    }
+  
+    .refund-policy {
+      padding: 10px;
+    }
+  }

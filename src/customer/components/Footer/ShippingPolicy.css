@@ -1,0 +1,52 @@
+.shipping-policy {
+    margin: 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .section {
+    margin: 40px auto; /* Centers the section horizontally */
+    padding: 20px;
+    width: 100%; /* Keeps the width flexible / / Optional: Sets a maximum width for better readability */
+    /* Centers the text content inside the section */
+     /* Optional: Add a soft shadow */
+  }
+  
+  
+  .content-wrapper {
+    display: flex; /* Use flexbox to arrange <h2> and <p> side by side */
+    align-items: flex-start; /* Align content at the top */
+    gap: 20px; /* Space between <h2> and <p> */
+  }
+  
+  .content-wrapper h2 {
+    flex: 0 0 30%; /* Make the <h2> take up 30% of the row */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .content-wrapper p {
+    flex: 1; /* Make the <p> take the remaining space */
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+    width: 100%;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .content-wrapper {
+      flex-direction: column; /* Stack <h2> and <p> vertically on smaller screens */
+    }
+  
+    .content-wrapper h2 {
+      flex: none;
+      margin-bottom: 10px;
+    }
+  }
