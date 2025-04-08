@@ -23,6 +23,10 @@ const Cart: React.FC = () => {
     setCouponCode(e.target.value);
   };
 
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   const handleApplyCoupon = () => {
     if (couponCode.trim()) {
       dispatch(

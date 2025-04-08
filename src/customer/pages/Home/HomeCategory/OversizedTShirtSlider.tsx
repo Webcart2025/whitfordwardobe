@@ -6,8 +6,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "./styles.css"; // Import updated styles
 
 const oversizedTShirts = [
-  { id: 1, name: "Social dilemma", image: "/images/DSC00135.jpg", link: "/product/1" },
-  { id: 2, name: "Solids", image: "/images/DSC09996.jpg", link: "/product/2" },
+  { id: 1, name: "Graphics", image: "/images/DSC00135.jpg", link: "/product/1" },
+  { id: 2, name: "Solids", image: "/images/DSC09996.jpg", link: "/product/6" },
   { id: 3, name: "Redbull", image: "/images/DSC09491.jpg", link: "/product/3" },
   //{ id: 4, name: "Classic White Tee", image: "/images/DSC09993.jpg", link: "/product/4" },
   //{ id: 5, name: "Vintage Wash Tee", image: "/images/DSC09491.jpg", link: "/product/5" },
@@ -32,6 +32,7 @@ const OversizedTShirtSlider = () => {
       { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } },
     ],
   };
+  
 
   // ✅ Fixed: Ensure TypeScript recognizes `slickNext`
   const handleMouseEnter = () => {
@@ -47,7 +48,11 @@ const OversizedTShirtSlider = () => {
           <div
             key={shirt.id}
             className="shirt-card"
-            onClick={() => navigate(shirt.link)}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              navigate(shirt.link);
+            }}
+            // onClick={() => navigate(shirt.link)}
             onMouseEnter={handleMouseEnter} // Slide when hovering
           >
             <img src={shirt.image} alt={shirt.name} className="shirt-image" />
