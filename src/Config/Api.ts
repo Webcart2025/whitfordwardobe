@@ -5,7 +5,8 @@ export const DEPLOYED_URL = "https://whitfordwardobe-backend.onrender.com"
 // change api
 
 export const api = axios.create({
-  baseURL: API_URL, 
+  baseURL: DEPLOYED_URL, 
+
   headers: {
     'Content-Type': 'application/json',
   },
