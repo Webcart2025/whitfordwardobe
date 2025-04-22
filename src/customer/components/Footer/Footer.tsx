@@ -19,7 +19,7 @@ const Footer = () => {
         <div>
           <h3 className="text-2xl font-bold text-white mb-4">WHITFORD</h3>
           <p className="text-sm">
-            Elevating wardrobe experiences with premium products.
+             A wardrobe tailored for the Elite!! Check out!!!.
           </p>
         </div>
 
@@ -63,7 +63,8 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="hover:text-pink-500"
             >
-              <FontAwesomeIcon icon={faInstagram} />
+              <FontAwesomeIcon icon={faInstagram} /> whitford.wardrobe
+
             </a>
             {/* <a
               href="https://www.facebook.com"
@@ -87,18 +88,32 @@ const Footer = () => {
         <div>
           <h4 className="mb-4 text-sm font-semibold uppercase">Contact</h4>
           <ul className="space-y-2 text-sm">
-            <li>
-              <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-              info@whitford.in
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faPhone} className="mr-2" />
-              +91 6359426442
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
-              A-602, The Capital, Science City Road, Ahmedabad
-            </li>
+        <li>
+          <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
+          <a href="mailto:whitfordwardrobe@gmail.com" className="hover:underline">
+          whitfordwardrobe@gmail.com
+
+            </a>
+        </li>
+
+        <li>
+          <FontAwesomeIcon icon={faPhone} className="mr-2" />
+          <a href="tel:+916359426442" className="hover:underline">
+          +91 6359426442
+         </a>
+        </li>
+
+        <li>
+  <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
+  <a
+    href="https://www.google.com/maps?q=A-602,+The+Capital,+Science+City+Road,+Ahmedabad"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:underline"
+  >
+    A-602, The Capital, Science City Road, Ahmedabad
+  </a>
+</li>
           </ul>
         </div>
       </div>

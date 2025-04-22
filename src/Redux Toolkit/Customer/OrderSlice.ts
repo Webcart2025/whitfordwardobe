@@ -62,7 +62,9 @@ export const createOrder = createAsyncThunk<
   { address: Address; jwt: string, paymentGateway: string}
 >("orders/createOrder", async ({ address, jwt , paymentGateway}, { rejectWithValue }) => {
   try {
+    // console.log("jwt",jwt)
     const response = await api.post<any>(API_URL, address, {
+      
       headers: { Authorization: `Bearer ${jwt}` },
       params:{paymentMethod:paymentGateway}
     });

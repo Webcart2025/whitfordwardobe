@@ -1,176 +1,117 @@
-import React from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { Box, Button, TextField, Grid } from "@mui/material";
-import { useAppDispatch } from "../../../Redux Toolkit/Store";
-import { createOrder } from "../../../Redux Toolkit/Customer/OrderSlice";
-import { Address } from "../../../types/userTypes";
+import React from 'react'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import { Address } from '../../../types/userTypes'
+import { useAppDispatch } from '../../../Redux Toolkit/Store'
+import {
+  addAddressToServer,
+  updateAddress
+} from '../../../Redux Toolkit/Customer/UserSlice'
 
-// Validation schema
-const ContactSchema = Yup.object().shape({
-  name: Yup.string().required("Required"),
-  mobile: Yup.string()
-    .matches(/^[6-9]\d{9}$/, "Invalid mobile number")
-    .required("Required"),
-  pinCode: Yup.string()
-    .matches(/^\d{6}$/, "Invalid pincode")
-    .required("Required"),
-  address: Yup.string().required("Required"),
-  locality: Yup.string().required("Required"),
-  city: Yup.string().required("Required"),
-  state: Yup.string().required("Required"),
-});
-
-interface AddressFormProp {
-  handleClose: () => void;
-  paymentGateway: string;
+interface AddressFormProps {
+  handleClose: () => void
+  mode: string // not used currently but kept for future
+  paymentGateway: string // not used currently but kept for future
+  existingAddress?: Address | null // if provided, form goes to edit mode
 }
 
-const AddressForm: React.FC<AddressFormProp> = ({
+const AddressForm: React.FC<AddressFormProps> = ({
   handleClose,
-  paymentGateway,
+  existingAddress = null
 }) => {
-  const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch()
+  const jwt = localStorage.getItem('jwt') || ''
+  const isEditMode = !!existingAddress
 
   const formik = useFormik({
     initialValues: {
-      name: "",
-      mobile: "",
-      pinCode: "",
-      address: "",
-      locality: "",
-      city: "",
-      state: "",
+      name: existingAddress?.name || '',
+      address: existingAddress?.address || '',
+      locality: existingAddress?.locality || '',
+      city: existingAddress?.city || '',
+      state: existingAddress?.state || '',
+      pinCode: existingAddress?.pinCode || '',
+      mobile: existingAddress?.mobile || ''
     },
-    validationSchema: ContactSchema,
-    onSubmit: (values) => {
-      console.log("Form submitted", values);
-      handleCreateOrder(values as Address);
-      handleClose();
-    },
-  });
+    validationSchema: Yup.object({
+      name: Yup.string().required('Name is required'),
+      address: Yup.string().required('Address is required'),
+      locality: Yup.string().required('Locality is required'),
+      city: Yup.string().required('City is required'),
+      state: Yup.string().required('State is required'),
+      pinCode: Yup.string()
+        .matches(/^[0-9]{6}$/, 'PIN code must be 6 digits')
+        .required('PIN code is required'),
+      mobile: Yup.string()
+        .matches(/^[0-9]{10}$/, 'Mobile number must be 10 digits')
+        .required('Mobile number is required')
+    }),
+    onSubmit: async (values) => {
+      const addressPayload: Address = {
+        ...values,
+        id: existingAddress?.id || 0
+      }
 
-  const handleCreateOrder = (address: Address) => {
-    dispatch(
-      createOrder({
-        address,
-        jwt: localStorage.getItem("jwt") || "",
-        paymentGateway,
-      })
-    );
-  };
+      try {
+        if (isEditMode) {
+          await dispatch(updateAddress({ address: addressPayload, jwt })).unwrap()
+        } else {
+          await dispatch(addAddressToServer({ address: addressPayload, jwt })).unwrap()
+        }
+        handleClose()
+      } catch (err) {
+        console.error('Address submission failed:', err)
+      }
+    }
+  })
 
   return (
-    <Box sx={{ maxWidth: 600, mx: "auto", p: 2 }}>
-      <p className="text-xl font-bold text-center pb-5">Address Details</p>
-      <form onSubmit={formik.handleSubmit}>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              name="name"
-              label="Name"
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.name && Boolean(formik.errors.name)}
-              helperText={formik.touched.name && formik.errors.name}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              name="mobile"
-              label="Mobile"
-              value={formik.values.mobile}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.mobile && Boolean(formik.errors.mobile)}
-              helperText={formik.touched.mobile && formik.errors.mobile}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              name="pinCode"
-              label="Pin Code"
-              value={formik.values.pinCode}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.pinCode && Boolean(formik.errors.pinCode)}
-              helperText={formik.touched.pinCode && formik.errors.pinCode}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              name="address"
-              label="Address (House No, Building, Street)"
-              value={formik.values.address}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.address && Boolean(formik.errors.address)}
-              helperText={formik.touched.address && formik.errors.address}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              name="locality"
-              label="Locality/Town"
-              value={formik.values.locality}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.locality && Boolean(formik.errors.locality)}
-              helperText={formik.touched.locality && formik.errors.locality}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              name="city"
-              label="City"
-              value={formik.values.city}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.city && Boolean(formik.errors.city)}
-              helperText={formik.touched.city && formik.errors.city}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              name="state"
-              label="State"
-              value={formik.values.state}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.state && Boolean(formik.errors.state)}
-              helperText={formik.touched.state && formik.errors.state}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <Button
-              sx={{
-                py: "14px",
-                backgroundColor: "black",
-                color: "white",
-                fontSize: "16px",
-                "&:hover": { backgroundColor: "black" },
-                "&:active": { backgroundColor: "black" },
-                "&:focus": { backgroundColor: "black" },
-              }}
-              type="submit"
-              variant="contained"
-              fullWidth
-            >
-              Add Address
-            </Button>
-          </Grid>
-        </Grid>
-      </form>
-    </Box>
-  );
-};
+    <form onSubmit={formik.handleSubmit} className="p-5 space-y-4">
+      {[
+        ['name', 'Full Name'],
+        ['address', 'Address'],
+        ['locality', 'Locality'],
+        ['city', 'City'],
+        ['state', 'State'],
+        ['pinCode', 'PIN Code'],
+        ['mobile', 'Mobile Number']
+      ].map(([key, label]) => (
+        <div key={key}>
+          <label className="block font-medium mb-1">{label}</label>
+          <input
+            type="text"
+            name={key}
+            value={formik.values[key as keyof typeof formik.values]}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            className="w-full p-2 border rounded"
+          />
+          {formik.touched[key as keyof typeof formik.values] &&
+            formik.errors[key as keyof typeof formik.values] && (
+              <p className="text-red-500 text-sm mt-1">
+                {formik.errors[key as keyof typeof formik.values]}
+              </p>
+            )}
+        </div>
+      ))}
 
-export default AddressForm;
+      <div className="flex justify-end gap-3 pt-4">
+        <button
+          type="button"
+          onClick={handleClose}
+          className="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+        >
+          {isEditMode ? 'Update Address' : 'Save Address'}
+        </button>
+      </div>
+    </form>
+  )
+}
+
+export default AddressForm

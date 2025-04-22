@@ -110,12 +110,12 @@ const LoginForm = () => {
 
                 {auth.otpSent && <div className="space-y-2">
                     <p className="font-medium text-sm">
-                        * Enter OTP sent to your mobile number
+                        * Enter OTP sent to your email
                     </p>
                     <OTPInput
                         length={6}
                         onChange={handleOtpChange}
-                        error={false}
+                        error={formik.touched.otp && Boolean(formik.errors.otp)}
                     />
                     <p className="text-xs space-x-2">
                         {isTimerActive ? (
@@ -149,7 +149,7 @@ const LoginForm = () => {
                 "&:hover": { backgroundColor: "gray" } 
             }}
         >
-            {auth.loading ? <CircularProgress /> : "Login"}
+            {auth.loading ? <CircularProgress size={24} sx={{ color: "black" }}/> : "Login"}
         </Button>
     </div>
 )}
@@ -161,7 +161,7 @@ const LoginForm = () => {
                     variant='contained'
                     onClick={handleSentOtp}
                     sx={{ py: "11px",backgroundColor:"black",color:"white","&:hover":{backgroundColor:"gray"} }}>{
-                        auth.loading ? <CircularProgress  />: "sent otp"}</Button>
+                        auth.loading ? <CircularProgress  size={24} sx={{ color: "black" }}/>: "sent otp"}</Button>
                 }
 
 

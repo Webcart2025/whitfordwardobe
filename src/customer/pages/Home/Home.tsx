@@ -32,7 +32,7 @@ const Home = () => {
           <div className="absolute bottom-5 left-5 bg-black bg-opacity-60 text-white p-4 rounded-lg">
             <h2 className="text-xl font-bold">Oversized T-Shirt</h2>
             <p className="text-sm text-gray-300">A wardrobe tailored for the Elite!! Check out!!!.</p>
-            <span className="text-lg font-semibold text-yellow-400">₹899</span>
+            <span className="text-lg font-semibold text-yellow-400">₹699</span>
           </div>
 
           {/* View All Button */}

@@ -35,6 +35,7 @@ const AddressCard: React.FC<AddressCardProps> = ({ value, selectedValue, handleC
                 </p>
                 <p className="text-sm">
                     <strong>Mobile:</strong> {item.mobile}
+                    
                 </p>
             </div>
         </div>

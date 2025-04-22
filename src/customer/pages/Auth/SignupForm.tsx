@@ -5,6 +5,8 @@ import { useFormik } from 'formik';
 import { useAppDispatch, useAppSelector } from '../../../Redux Toolkit/Store';
 import { sendLoginSignupOtp, signup } from '../../../Redux Toolkit/Customer/AuthSlice';
 import { useNavigate } from 'react-router-dom';
+import { InputAdornment } from "@mui/material";
+
 
 const SignupForm = () => {
     const navigate = useNavigate();
@@ -93,7 +95,7 @@ const SignupForm = () => {
                 {/* OTP Input */}
                 {auth.otpSent && (
                     <div className="space-y-2">
-                        <p className="font-medium text-sm">* Enter OTP sent to your mobile number</p>
+                        <p className="font-medium text-sm">* Enter OTP sent to your email</p>
                         <OTPInput length={6} onChange={handleOtpChange} error={false} />
                         <p className="text-xs space-x-2">
                             {isTimerActive ? (
@@ -118,37 +120,59 @@ const SignupForm = () => {
     <>
         {/* Name Input */}
         <TextField
-            fullWidth
-            name="name"
-            label="Enter Your Name"
-            value={formik.values.name}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.name && Boolean(formik.errors.name)}
-            helperText={formik.touched.name ? (formik.errors.name as string) : undefined}
-        />
+  fullWidth
+  name="name"
+  label="Enter Your Name"
+  value={formik.values.name}
+  onChange={formik.handleChange}
+  onBlur={formik.handleBlur}
+  error={formik.touched.name && Boolean(formik.errors.name)}
+  helperText={formik.touched.name ? (formik.errors.name as string) : undefined}
+  InputLabelProps={{ style: { color: "black" } }}
+  sx={{
+    "& label.Mui-focused": { color: "black" }, // Label color on focus
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": { borderColor: "black" }, // Default border
+      "&:hover fieldset": { borderColor: "black" }, // Hover border
+      "&.Mui-focused fieldset": { borderColor: "black" }, // Focused border
+    },
+  }}
+/>
 
         {/* Mobile Input */}
         <TextField
-            fullWidth
-            name="mobile"
-            label="Enter Your Mobile Number"
-            type="number"
-            value={formik.values.mobile}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.mobile && Boolean(formik.errors.mobile)}
-            helperText={formik.touched.mobile ? (formik.errors.mobile as string) : undefined}
-            InputLabelProps={{ style: { color: "black" } }}
-            sx={{
-                "& label.Mui-focused": { color: "black" },
-                "& .MuiOutlinedInput-root": {
-                    "& fieldset": { borderColor: "black" },
-                    "&:hover fieldset": { borderColor: "black" },
-                    "&.Mui-focused fieldset": { borderColor: "black" },
-                },
-            }}
-        />
+  fullWidth
+  name="mobile"
+  label="Enter Your Mobile Number"
+  type="tel"
+  value={formik.values.mobile}
+  onChange={formik.handleChange}
+  onBlur={formik.handleBlur}
+  error={formik.touched.mobile && Boolean(formik.errors.mobile)}
+  helperText={formik.touched.mobile ? (formik.errors.mobile as string) : undefined}
+  InputProps={{
+    startAdornment: (
+      <InputAdornment position="start" style={{ color: "black" }}>
+        +91
+      </InputAdornment>
+    ),
+    inputProps: {
+      maxLength: 10,
+      onInput: (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+      }
+    }
+  }}
+  InputLabelProps={{ style: { color: "black" } }}
+  sx={{
+    "& label.Mui-focused": { color: "black" },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": { borderColor: "black" },
+      "&:hover fieldset": { borderColor: "black" },
+      "&.Mui-focused fieldset": { borderColor: "black" },
+    },
+  }}
+/>
     </>
 )}
 
@@ -167,7 +191,7 @@ const SignupForm = () => {
                         }}
                     >
                         {auth.loading ? (
-                            <CircularProgress size="small" sx={{ width: "27px", height: "27px" }} />
+                            <CircularProgress size="small" sx={{ width: "27px", height: "27px",color: "black" }} />
                         ) : (
                             "Signup"
                         )}
@@ -183,7 +207,7 @@ const SignupForm = () => {
                         disabled={auth.loading}
                         sx={{ py: "11px", backgroundColor: "black", color: "white", ":hover": { backgroundColor: "gray" } }}
                     >
-                        {auth.loading ? <CircularProgress size="small" sx={{ width: "27px", height: "27px" }} /> : "Send OTP"}
+                        {auth.loading ? <CircularProgress size="small" sx={{ width: "27px", height: "27px",color: "black" }} /> : "Send OTP"}
                     </Button>
                 )}
             </form>

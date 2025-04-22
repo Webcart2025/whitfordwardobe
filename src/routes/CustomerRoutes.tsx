@@ -50,7 +50,9 @@ const CustomerRoutes = () => {
         <Route path='/product-details/:categoryId/:name/:productId' element={<ProductDetails />} />
         <Route path='/wishlist' element={<Wishlist />} />
         <Route path='/checkout/address' element={<Address />} />
+        {/* <Route path='/account/*' element={<Profile />} /> */}
         <Route path='/account/*' element={<Profile />} />
+
         <Route path='/login' element={<Auth/>} />
         <Route path='/payment-success/:orderId' element={<PaymentSuccessHandler/>} />
         <Route path='*' element={<NotFound />} />

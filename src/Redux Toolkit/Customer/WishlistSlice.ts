@@ -54,9 +54,9 @@ export const addProductToWishlist = createAsyncThunk<
   }
 );
 
-// ✅ Remove Product from Wishlist
+
 export const removeProductFromWishlist = createAsyncThunk<
-  { productId: number }, // ✅ Return productId as an object
+  { productId: number }, 
   { productId: number },
   { rejectValue: string }
 >(

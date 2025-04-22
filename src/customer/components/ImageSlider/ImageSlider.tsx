@@ -23,7 +23,7 @@ const ImageSlider = () => {
       <img
         src={images[currentIndex]}
         alt={`Slide ${currentIndex}`}
-        className="w-full h-auto rounded-lg shadow-lg transition-transform duration-500 ease-in-out"
+        className="w-full h-auto rounded-lg shadow-lg transition-transform duration-2500 ease-in-out"
       />
     </div>
   );

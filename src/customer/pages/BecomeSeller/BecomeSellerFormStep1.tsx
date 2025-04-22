@@ -36,7 +36,7 @@ const BecomeSellerFormStep1 = ({ formik, handleOtpChange }: any) => {
 
                 {/* <div className="space-y-2">
                     <p className="font-medium text-sm">
-                        * Enter OTP sent to your mobile number
+                        * Enter OTP sent to your email
                     </p>
                     <OTPInput
                         length={6}

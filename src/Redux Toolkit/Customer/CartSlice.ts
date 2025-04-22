@@ -34,7 +34,7 @@ export const fetchUserCart = createAsyncThunk<Cart, string>(
 );
 
 interface AddItemRequest {
-  productId: number | undefined;
+  productId: number 
   size: string;
   quantity: number;
 }

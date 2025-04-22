@@ -1,15 +1,15 @@
-import { useAppSelector } from "../../../Redux Toolkit/Store";
-import HomeCategoryTable from "./HomeCategoryTable";
+// import { useAppSelector } from "../../../Redux Toolkit/Store";
+// import HomeCategoryTable from "./HomeCategoryTable";
 
-function DealsCategoryTable() {
-  const { homePage} = useAppSelector((store) => store);
+// function DealsCategoryTable() {
+//   const { homePage} = useAppSelector((store) => store);
 
-  return (
-    <>
-      <HomeCategoryTable categories={homePage.homePageData?.dealCategories}/>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <HomeCategoryTable categories={homePage.homePageData?.dealCategories}/>
+//     </>
+//   );
+// }
 
 
-export default DealsCategoryTable
+// export default DealsCategoryTable

@@ -1,4 +1,5 @@
 import { useAppSelector } from "../../../Redux Toolkit/Store";
+import { Product } from "../../../types/productTypes";
 import WishlistProductCard from "./WishlistProductCard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,7 +20,7 @@ const Wishlist = () => {
 
       {wishlistProducts.length > 0 ? (
         <section className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 mt-6">
-          {wishlistProducts.map((item) => (
+          {wishlistProducts.map((item: Product) => (
             <div key={item.id} className="w-full">
               <WishlistProductCard item={item} />
             </div>

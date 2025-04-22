@@ -1,8 +1,8 @@
-import React from 'react'
-import HomeCategoryCard from './HomeCategoryCard'
-import { useAppSelector } from '../../../../Redux Toolkit/Store';
+// import React from 'react'
+// import HomeCategoryCard from './HomeCategoryCard'
+// import { useAppSelector } from '../../../../Redux Toolkit/Store';
 
-const homeCategory=[
+// const homeCategory=[
   // {
   //   "parentCategoryId":"women",
   //   "level":2,
@@ -132,15 +132,15 @@ const homeCategory=[
 //   image:"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/20122324/2022/9/22/91c61c45-fe17-4d1d-8e20-0aaaf90186b61663827920015RaymondSlimFitBlueJeansForMen1.jpg"
 // },
   
-]
-const HomeCategory = () => {
-  const { homePage} = useAppSelector((store) => store);
-  return (
-    <div className='flex justify-center gap-7 flex-wrap '>
-        {homePage.homePageData?.shopByCategories.map((item)=><HomeCategoryCard item={item}/>)}
+// ]
+// const HomeCategory = () => {
+//   const { homePage} = useAppSelector((store) => store);
+//   return (
+//     <div className='flex justify-center gap-7 flex-wrap '>
+//         {homePage.homePageData?.shopByCategories.map((item)=><HomeCategoryCard item={item}/>)}
         
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default HomeCategory
+// export default HomeCategory

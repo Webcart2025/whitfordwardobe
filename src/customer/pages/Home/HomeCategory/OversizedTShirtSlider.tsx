@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./styles.css"; // Import updated styles
 
 const oversizedTShirts = [
-  { id: 1, name: "Graphics", image: "/images/DSC00135.jpg", link: "/product/1" },
+  { id: 1, name: "Our Graphics Tee's", image: "/images/DSC00135.jpg", link: "/product/1" },
   { id: 2, name: "Solids", image: "/images/DSC09996.jpg", link: "/product/6" },
   { id: 3, name: "Redbull", image: "/images/DSC09491.jpg", link: "/product/3" },
   //{ id: 4, name: "Classic White Tee", image: "/images/DSC09993.jpg", link: "/product/4" },
@@ -21,11 +21,11 @@ const OversizedTShirtSlider = () => {
   const sliderSettings = {
     dots: false,
     infinite: false,
-    speed: 500,
+    speed: 1800,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: false,
-    arrows: false,
+    autoplay: true,
+    arrows: true,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 1 } },
       { breakpoint: 768, settings: { slidesToShow: 1.5, slidesToScroll: 1 } },

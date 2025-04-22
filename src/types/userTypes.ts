@@ -1,4 +1,4 @@
-// src/types/addressTypes.ts
+//src/types/addressTypes.ts
 export interface Address {
     id?: number;
     name: string;
@@ -23,11 +23,12 @@ export interface User {
     fullName: string;
     mobile?: string;
     role: UserRole;
-    addresses?: Address[];
+    addresses?: Address[]; // Optional, since user might not have addresses yet.
 }
 
 export interface UserState {
     user: User | null;
+    addresses: Address[];  // Can be set as empty or null initially
     loading: boolean;
     error: string | null;
     profileUpdated: boolean;

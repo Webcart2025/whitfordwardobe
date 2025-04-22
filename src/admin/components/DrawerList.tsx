@@ -31,30 +31,30 @@ const menu = [
         icon: <AddIcon className="text-primary-color" />,
         activeIcon: <AddIcon className="text-white" />,
     },
-    {
-        name: "Home Page",
-        path: "/admin/home-grid",
-        icon: <HomeIcon className="text-primary-color" />,
-        activeIcon: <HomeIcon className="text-white" />,
-    },
+    // {
+    //     name: "Home Page",
+    //     path: "/admin/home-grid",
+    //     icon: <HomeIcon className="text-primary-color" />,
+    //     activeIcon: <HomeIcon className="text-white" />,
+    // },
     // {
     //     name: "Electronics Category",
     //     path: "/admin/electronics-category",
     //     icon: <ElectricBoltIcon className="text-primary-color" />,
     //     activeIcon: <ElectricBoltIcon className="text-white" />,
     // },
-    {
-        name: "Shop By Category",
-        path: "/admin/shop-by-category",
-        icon: <Category className="text-primary-color" />,
-        activeIcon: <Category className="text-white" />,
-    },
-    {
-        name: "Deals",
-        path: "/admin/deals",
-        icon: <LocalOfferIcon className="text-primary-color" />,
-        activeIcon: <LocalOfferIcon className="text-white" />,
-    },
+    // {
+    //     name: "Shop By Category",
+    //     path: "/admin/shop-by-category",
+    //     icon: <Category className="text-primary-color" />,
+    //     activeIcon: <Category className="text-white" />,
+    // },
+    // {
+    //     name: "Deals",
+    //     path: "/admin/deals",
+    //     icon: <LocalOfferIcon className="text-primary-color" />,
+    //     activeIcon: <LocalOfferIcon className="text-white" />,
+    // },
     {
         name: "Seller Dashboard",
         path: "/seller",

@@ -1,4 +1,4 @@
-import { Alert, Button, Divider, Snackbar } from "@mui/material";
+import { Alert, Divider, Snackbar } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Order from "./Order";
@@ -12,10 +12,9 @@ const menu = [
   { name: "Orders", path: "/account/orders" },
   { name: "Profile", path: "/account/profile" },
   { name: "Addresses", path: "/account/addresses" },
-  { name: "Logout", path: "#" }, // Added Logout to menu
+  { name: "Logout", path: "#" },
 ];
 
-// Updated order submenu with correct status mapping
 const orderSubMenu = [
   { 
     name: "Arriving", 
@@ -31,6 +30,8 @@ const orderSubMenu = [
   }
 ];
 
+
+
 const Profile = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -39,6 +40,11 @@ const Profile = () => {
   const [snackbarOpen, setOpenSnackbar] = useState(false);
   const [activeOrderFilter, setActiveOrderFilter] = useState<string | null>(null);
 
+  // Debug user ID
+  useEffect(() => {
+    console.log("Current user ID:", user.user?.id);
+  }, [user.user]);
+
   const handleLogout = () => {
     dispatch(performLogout());
     navigate("/");
@@ -46,7 +52,7 @@ const Profile = () => {
 
   const handleClick = (item: any) => {
     if (item.name === "Logout") {
-      handleLogout(); // Call logout function when Logout is clicked in menu
+      handleLogout();
     } else {
       navigate(`${item.path}`);
       setActiveOrderFilter(null);
@@ -69,13 +75,11 @@ const Profile = () => {
 
   return (
     <div className="px-3 lg:px-52 min-h-screen mt-10">
-      {/* User Name */}
       <div>
         <h1 className="text-xl font-bold pb-5">{user.user?.fullName}</h1>
       </div>
       <Divider />
 
-      {/* Main Menu Items */}
       <div className="flex flex-wrap lg:flex-row gap-3 justify-start border-b pb-2">
         {menu.map((item, index) => (
           <div
@@ -90,7 +94,6 @@ const Profile = () => {
         ))}
       </div>
 
-      {/* Order Sub-Menu (only shown on orders page) */}
       {location.pathname.includes("/orders") && (
         <div className="flex flex-wrap lg:flex-row gap-3 justify-start border-b pb-2 mt-3">
           {orderSubMenu.map((item, index) => (
@@ -107,32 +110,26 @@ const Profile = () => {
         </div>
       )}
 
-      {/* Content Section */}
+     
+
       <div className="py-5">
         <Routes>
           <Route path="/" element={<UserDetails />} />
-          <Route 
-            path="/orders" 
-            element={<Order activeFilter={activeOrderFilter} />} 
-          />
+          <Route path="/orders" element={<Order activeFilter={activeOrderFilter} />} />
           <Route path="/orders/:orderId/:orderItemId" element={<OrderDetails />} />
           <Route path="/profile" element={<UserDetails />} />
-          <Route path="/addresses" element={<Addresses />} />
+          <Route path='/addresses' element={<Addresses />} />
+          
+
+          {/* <Route  path="/addresses/:userId"  element={ user.user?.id ? (
+      <Addresses userId={user.user.id} onAddressUpdated={() => setOpenSnackbar(true)} />
+    ) : (
+      <div>Loading...</div> // Or redirect or show fallback
+    )
+  } />  */}
         </Routes>
       </div>
 
-      {/* Standalone Logout Button */}
-      {/* <div className="flex justify-center mt-5">
-        <Button 
-          variant="contained" 
-          color="error" 
-          onClick={handleLogout}
-        >
-          Logout
-        </Button>
-      </div> */}
-
-      {/* Snackbar for Notifications */}
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={snackbarOpen}
