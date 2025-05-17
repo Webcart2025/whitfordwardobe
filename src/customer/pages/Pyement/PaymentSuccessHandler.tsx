@@ -28,7 +28,7 @@ const PaymentSuccessHandler = () => {
                 })
             );
         }
-    }, [paymentId]);
+    }, [paymentId , paymentLinkId , dispatch]);
 
 
     return (

@@ -51,7 +51,7 @@ export default function SellersTable() {
 
     React.useEffect(() => {
         dispatch(fetchSellers(accountStatus))
-    }, [accountStatus])
+    }, [accountStatus , dispatch])
 
     const handleAccountStatusChange = (event: any) => {
         setAccountStatus(event.target.value as string);

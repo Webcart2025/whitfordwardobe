@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
-  Modal,
+  
   Divider,
   Typography,
   Tabs,
@@ -21,7 +21,7 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import {
   fetchProductById,
-  getAllProducts,
+  
 } from "../../../../Redux Toolkit/Customer/ProductSlice";
 import { addItemToCart } from "../../../../Redux Toolkit/Customer/CartSlice";
 import Navbar from "../../../components/Navbar/Navbar";
@@ -40,22 +40,11 @@ import ProductReviewCard from "../../Review/ProductReviewCard";
 import { fetchReviewsByProductId } from "../../../../Redux Toolkit/Customer/ReviewSlice";
 //import ColorSelector from "./ColorSelector";
 
-const modalStyle = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "auto",
-  height: "100%",
-  boxShadow: 24,
-  outline: "none",
-  backgroundColor: "white",
-};
 
 const SIZES = ["M", "L", "XL"];
 
 const ProductDetails = () => {
-  const [open, setOpen] = useState(false);
+  const [ setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [sizeError, setSizeError] = useState("");
@@ -68,7 +57,7 @@ const ProductDetails = () => {
   const { review } = useAppSelector((store) => store);
   const { wishlist: wishlistItems } = useAppSelector((store) => store.wishlist);
   const navigate = useNavigate();
-  const { productId, categoryId } = useParams();
+  const { productId } = useParams();
   // const [selectedSize, setSelectedSize] = useState<string | null>(null);
   //const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
@@ -173,7 +162,7 @@ const ProductDetails = () => {
           <div className="flex flex-col">
             <div className="w-full h-auto max-h-[600px] mb-4">
               <img
-                onClick={() => setOpen(true)}
+                
                 className="w-full h-full object-contain rounded-md cursor-zoom-out border border-gray-200"
                 src={product?.images?.[selectedImage] || "/fallback-image.png"}
                 alt="Selected Product"

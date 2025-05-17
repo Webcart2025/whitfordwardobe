@@ -1,8 +1,7 @@
-import React, { useState, useEffect, MouseEvent } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductCard.css";
 import { useNavigate } from "react-router-dom";
 import { Product } from "../../../../types/productTypes";
-import { useAppDispatch, useAppSelector } from "../../../../Redux Toolkit/Store";
 
 interface ProductCardProps {
   item: Product;
@@ -14,7 +13,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
   
   const navigate = useNavigate();
-  const [ setShowChatBot] = useState(false);
+ 
 
   // const handleAddWishlist = (event: MouseEvent) => {
   //   event.stopPropagation();
@@ -36,11 +35,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
   //   setShowChatBot(true);
   // };
 
-  interface ProductCardProps {
-    item: Product;
-    onAddWishlist?: (productId: number) => void;
-    onShowChatBot?: (productId: number) => void;
-  }
   // const handleCloseChatBot = (event: MouseEvent) => {
   //   event.stopPropagation();
   //   setShowChatBot(false);

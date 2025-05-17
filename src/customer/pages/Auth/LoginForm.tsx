@@ -13,7 +13,7 @@ const LoginForm = () => {
 
     const navigate = useNavigate();
     const [otp, setOtp] = useState("");
-    const [isOtpSent, setIsOtpSent] = useState(false)
+    
     const [timer, setTimer] = useState<number>(30); // Timer state
     const [isTimerActive, setIsTimerActive] = useState<boolean>(false);
     const dispatch = useAppDispatch();
@@ -47,7 +47,7 @@ const LoginForm = () => {
     };
 
     const handleSentOtp = () => {
-        setIsOtpSent(true);
+        
         handleResendOTP();
     }
 

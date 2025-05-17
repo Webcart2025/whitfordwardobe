@@ -34,7 +34,6 @@ export const fetchSellerProfile = createAsyncThunk<Seller, any>(
   "sellers/fetchSellerProfile",
   async (jwt: string, { rejectWithValue }) => {
     try {
-      return rejectWithValue("failed to fetch sellers");
       const response = await api.get<Seller>(`${API_URL}/profile`, {
         headers: {
           Authorization: `Bearer ${jwt}`,
@@ -43,6 +42,7 @@ export const fetchSellerProfile = createAsyncThunk<Seller, any>(
       console.log("fetch seller profile", response.data);
       return response.data;
     } catch (error: any) {
+
       if (axios.isAxiosError(error) && error.response) {
         console.error(
           "Fetch sellers error response data:",
@@ -69,8 +69,6 @@ export const fetchSellers = createAsyncThunk<Seller[], string>(
   "sellers/fetchSellers",
   async (status: string, { rejectWithValue }) => {
     try {
-      return rejectWithValue("Failed to fetch sellers");
-
       const response = await api.get<Seller[]>(API_URL, {
         params: {
           status,

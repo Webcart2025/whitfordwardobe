@@ -21,7 +21,7 @@ const OrderDetails = () => {
       orderId: Number(orderId),
       jwt: localStorage.getItem("jwt") || ""
     }))
-  }, [auth.jwt])
+  }, [auth.jwt , dispatch , orderId , orderItemId])
 
   if (!orders.orders || !orders.orderItem) {
     return <div className='h-[80vh] flex justify-center items-center'>

@@ -20,7 +20,7 @@ const Reviews = () => {
             dispatch(fetchReviewsByProductId({ productId: Number(productId) }))
         }
 
-    }, [productId])
+    }, [productId, dispatch])
 
     return (
         <div className='p-5 lg:p-20 flex flex-col lg:flex-row gap-20'>

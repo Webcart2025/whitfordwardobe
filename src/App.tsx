@@ -26,7 +26,7 @@ import PrivacyPolicy from './customer/components/Footer/PrivacyPolicy';
 import ShippingPolicy from './customer/components/Footer/ShippingPolicy';
 import AccessibilityStatement from './customer/components/Footer/AccessibilityStatement';
 import RefundPolicy from './customer/components/Footer/RefundPolicy';
-import { BrowserRouter as Router, Routes, Route,useNavigate } from "react-router-dom";
+import {  Routes, Route,useNavigate } from "react-router-dom";
 
 
 function App() {
@@ -40,7 +40,7 @@ const navigate=useNavigate();
       dispatch(fetchSellerProfile(localStorage.getItem("jwt") || sellerAuth.jwt))
     }
 
-  }, [auth.jwt, sellerAuth.jwt])
+  }, [auth.jwt, sellerAuth.jwt , navigate, dispatch])
 
 
   return (

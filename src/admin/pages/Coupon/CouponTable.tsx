@@ -49,7 +49,7 @@ const accountStatuses = [
 
 export default function CouponTable() {
     
-    const [status, setStatus] = React.useState(accountStatuses[0].status)
+    const [status] = React.useState(accountStatuses[0].status)
     const {  adminCoupon } = useAppSelector(store => store)
     const dispatch = useAppDispatch();
 

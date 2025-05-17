@@ -14,12 +14,12 @@ import { redableDateTime } from '../../../util/redableDateTime';
 
 
 
-const orderStatusColor = {
-  PENDING: { color: '#FFA500', label: 'PENDING' }, // Orange
-  SHIPPED: { color: '#1E90FF', label: 'SHIPPED' }, // DodgerBlue
-  DELIVERED: { color: '#32CD32', label: 'DELIVERED' }, // LimeGreen
-  CANCELLED: { color: '#FF0000', label: 'CANCELLED' } // Red
-};
+// const orderStatusColor = {
+//   PENDING: { color: '#FFA500', label: 'PENDING' }, // Orange
+//   SHIPPED: { color: '#1E90FF', label: 'SHIPPED' }, // DodgerBlue
+//   DELIVERED: { color: '#32CD32', label: 'DELIVERED' }, // LimeGreen
+//   CANCELLED: { color: '#FF0000', label: 'CANCELLED' } // Red
+// };
 
 export default function TransactionTable() {
   const { transaction } = useAppSelector(store => store);

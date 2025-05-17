@@ -34,7 +34,7 @@ const CustomerRoutes = () => {
     useEffect(() => {
         dispatch(fetchUserCart(localStorage.getItem("jwt") || ""))
         dispatch(getWishlistByUserId())
-    }, [auth.jwt])
+    }, [auth.jwt , dispatch])
   return (
     <>
       <Navbar />
