@@ -7,7 +7,7 @@ const Coupon = () => {
     const dispatch = useAppDispatch()
     useEffect(() => {
         dispatch(fetchAllCoupons(localStorage.getItem("jwt") || ""))
-    }, [])
+    }, [dispatch])
     return (
         <div>
             <CouponTable />

@@ -10,7 +10,7 @@ const oversizedTShirts = [
   { id: 2, name: "Solids", image: "/images/DSC09996.jpg", link: "/product/6" },
   { id: 3, name: "Redbull", image: "/images/DSC09491.jpg", link: "/product/3" },
   
-];
+];  
 
 const OversizedTShirtSlider = () => {
   const navigate = useNavigate();

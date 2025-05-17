@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+
 import { Transaction } from '../../types/Transaction';
-import { Order } from '../../types/orderTypes';
+
 import { api } from '../../Config/Api';
 
 interface TransactionState {

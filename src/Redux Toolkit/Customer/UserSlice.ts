@@ -1,6 +1,6 @@
 // src/Redux Toolkit/Customer/UserSlice.ts
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
+
 
 import { api } from "../../Config/Api";
 import { RootState } from "../Store";

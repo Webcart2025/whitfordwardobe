@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { Cart, CartItem } from "../../types/cartTypes";
+import { Cart } from "../../types/cartTypes";
 import { api } from "../../Config/Api";
 import { RootState } from "../Store";
 import { applyCoupon } from "./CouponSlice";

@@ -2,10 +2,6 @@ import './App.css';
 import { ThemeProvider } from '@emotion/react';
 import customeTheme from './Theme/customeTheme';
 import { Button } from '@mui/material';
-import Navbar from './customer/components/Navbar/Navbar';
-import Home from './customer/pages/Home/Home';
-import Footer from './customer/components/Footer/Footer';
-import Products from './customer/pages/Products/Products';
 import ProductDetails from './customer/pages/Products/ProductDetails/ProductDetails';
 
 import SellerDashboard from './seller/pages/SellerDashboard/SellerDashboard';

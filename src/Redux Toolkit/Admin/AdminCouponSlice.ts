@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { Cart } from "../../types/cartTypes";
 import { Coupon, CouponState } from "../../types/couponTypes";
 import { api } from "../../Config/Api";
 
