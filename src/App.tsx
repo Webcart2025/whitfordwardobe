@@ -1,23 +1,22 @@
 import './App.css';
 import { ThemeProvider } from '@emotion/react';
 import customeTheme from './Theme/customeTheme';
-import { Button } from '@mui/material';
 import ProductDetails from './customer/pages/Products/ProductDetails/ProductDetails';
 
 import SellerDashboard from './seller/pages/SellerDashboard/SellerDashboard';
 import CustomerRoutes from './routes/CustomerRoutes';
 import AdminDashboard from './admin/pages/Dashboard/Dashboard';
-import SellerAccountForm from './customer/pages/BecomeSeller/SellerAccountForm';
+
 import SellerAccountVerification from './seller/pages/SellerAccountVerification';
 import SellerAccountVerified from './seller/pages/SellerAccountVerified';
 import { useAppDispatch, useAppSelector } from './Redux Toolkit/Store';
 import { useEffect } from 'react';
 import { fetchSellerProfile } from './Redux Toolkit/Seller/sellerSlice';
 import BecomeSeller from './customer/pages/BecomeSeller/BecomeSeller';
-import AdminLoginForm from './admin/pages/Auth/AdminLogin';
+
 import AdminAuth from './admin/pages/Auth/AdminAuth';
 import { fetchUserProfile } from './Redux Toolkit/Customer/UserSlice';
-import { createHomeCategories, fetchHomePageData } from './Redux Toolkit/Customer/Customer/AsyncThunk';
+
 
 import Mobile from './data/Products/mobile';
 
