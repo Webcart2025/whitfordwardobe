@@ -3,15 +3,13 @@ import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./styles.css"; // Import updated styles
+import "./styles.css"; 
 
 const oversizedTShirts = [
   { id: 1, name: "Our Graphics Tee's", image: "/images/DSC00135.jpg", link: "/product/1" },
   { id: 2, name: "Solids", image: "/images/DSC09996.jpg", link: "/product/6" },
   { id: 3, name: "Redbull", image: "/images/DSC09491.jpg", link: "/product/3" },
-  //{ id: 4, name: "Classic White Tee", image: "/images/DSC09993.jpg", link: "/product/4" },
-  //{ id: 5, name: "Vintage Wash Tee", image: "/images/DSC09491.jpg", link: "/product/5" },
-  // { id: 6, name: "Classic White Tee", image: "/images/DSC09993.jpg", link: "/product/6" },
+  
 ];
 
 const OversizedTShirtSlider = () => {
