@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../Redux Toolkit/Store';
 import { useParams } from 'react-router-dom';
 import { fetchProductById } from '../../../Redux Toolkit/Customer/ProductSlice';
-import { Box, Divider, Grid, LinearProgress, Rating } from '@mui/material';
+import {  Divider } from '@mui/material';
 import ProductReviewCard from './ProductReviewCard';
 import { fetchReviewsByProductId } from '../../../Redux Toolkit/Customer/ReviewSlice';
 import RatingCard from './RatingCard';

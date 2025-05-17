@@ -2,13 +2,11 @@ import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../Redux Toolkit/Store';
 import { useParams } from 'react-router-dom';
 import { fetchProductById } from '../../../Redux Toolkit/Customer/ProductSlice';
-import { Box, Grid, LinearProgress, Rating } from '@mui/material';
-import ProductReviewCard from './ProductReviewCard';
 import ReviewForm from './ReviewForm';
 
 const WriteReviews = () => {
     const dispatch = useAppDispatch();
-    const { products, review } = useAppSelector(store => store)
+    const { products } = useAppSelector(store => store)
 
     const { productId } = useParams()
 

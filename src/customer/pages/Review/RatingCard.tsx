@@ -1,6 +1,4 @@
-import { Avatar, Box, Grid, LinearProgress, Rating } from '@mui/material'
-import React from 'react'
-import { Review } from '../../../types/reviewTypes';
+import {  Box, Grid, LinearProgress, Rating } from '@mui/material'
 
 
 

@@ -68,7 +68,7 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    if (user.profileUpdated || orders.orderCanceled || user.error) {
+    if (user.profileUpdated || orders.orderCanceled ) {
       setOpenSnackbar(true);
     }
   }, [user.profileUpdated, orders.orderCanceled]);

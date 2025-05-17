@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar, IconButton } from "@mui/material";
-import { Rating, Box, Typography, Grid } from "@mui/material";
+import { Rating, Box,  Grid } from "@mui/material";
 import { Review } from "../../../types/reviewTypes";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { red } from "@mui/material/colors";
@@ -12,8 +12,8 @@ interface ProductReviewCardProps {
 }
 
 const ProductReviewCard = ({ item }: ProductReviewCardProps) => {
-  const [value, setValue] = React.useState(4.5);
-  const { auth, user } = useAppSelector(store => store);
+  
+  const {  user } = useAppSelector(store => store);
   const dispatch = useAppDispatch()
   const handleDeleteReview = () => {
     dispatch(deleteReview({ reviewId: item.id, jwt: localStorage.getItem("jwt") || "" }))

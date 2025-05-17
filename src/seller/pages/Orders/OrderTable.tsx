@@ -49,8 +49,6 @@ const orderStatusColor = {
 };
 
 export default function OrderTable() {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const { sellerOrder } = useAppSelector(store => store);
   const dispatch = useAppDispatch();
 

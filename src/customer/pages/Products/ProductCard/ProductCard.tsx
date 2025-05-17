@@ -1,40 +1,20 @@
 import React, { useState, useEffect, MouseEvent } from "react";
 import "./ProductCard.css";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { teal } from "@mui/material/colors";
-import { Box, Button, Modal } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Product } from "../../../../types/productTypes";
 import { useAppDispatch, useAppSelector } from "../../../../Redux Toolkit/Store";
-import { addProductToWishlist } from "../../../../Redux Toolkit/Customer/WishlistSlice";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { isWishlisted } from "../../../../util/isWishlisted";
-import ModeCommentIcon from "@mui/icons-material/ModeComment";
-import ChatBot from "../../ChatBot/ChatBot";
 
 interface ProductCardProps {
   item: Product;
 }
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "auto",
-  borderRadius: ".5rem",
-  boxShadow: 24,
-  backgroundColor: "white",
-  padding: "1rem",
-};
 
 const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const { wishlist } = useAppSelector((store) => store);
-  const dispatch = useAppDispatch();
+  
   const navigate = useNavigate();
-  const [showChatBot, setShowChatBot] = useState(false);
+  const [ setShowChatBot] = useState(false);
 
   // const handleAddWishlist = (event: MouseEvent) => {
   //   event.stopPropagation();
@@ -51,15 +31,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
     return () => clearInterval(interval);
   }, [isHovered, item.images.length]);
 
-  const handleShowChatBot = (event: MouseEvent) => {
-    event.stopPropagation();
-    setShowChatBot(true);
-  };
+  // const handleShowChatBot = (event: MouseEvent) => {
+  //   event.stopPropagation();
+  //   setShowChatBot(true);
+  // };
 
-  const handleCloseChatBot = (event: MouseEvent) => {
-    event.stopPropagation();
-    setShowChatBot(false);
-  };
+  interface ProductCardProps {
+    item: Product;
+    onAddWishlist?: (productId: number) => void;
+    onShowChatBot?: (productId: number) => void;
+  }
+  // const handleCloseChatBot = (event: MouseEvent) => {
+  //   event.stopPropagation();
+  //   setShowChatBot(false);
+  // };
 
   return (
     <>

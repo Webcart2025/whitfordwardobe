@@ -1,12 +1,5 @@
-import { Alert, Button, Snackbar, Step, StepLabel, Stepper } from "@mui/material";
+import { Alert, Button, Snackbar,  } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import BecomeSellerFormStep1 from "./BecomeSellerFormStep1";
-import BecomeSellerFormStep3 from "./BecomeSellerFormStep3";
-import BecomeSellerFormStep2 from "./BecomeSellerFormStep2";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import BecomeSellerFormStep4 from "./BecomeSellerFormStep4";
-import { useDispatch } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../../../Redux Toolkit/Store";
 import SellerLoginForm from "./SellerLoginForm";
 import { useLocation } from "react-router-dom";
@@ -16,9 +9,7 @@ import SellerAccountForm from "./SellerAccountForm";
 
 
 const BecomeSeller = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const dispatch = useAppDispatch();
-  const location = useLocation();
+
   const [isLoginPage, setIsLoginPage] = useState(false);
   const { sellerAuth } = useAppSelector(store => store)
 

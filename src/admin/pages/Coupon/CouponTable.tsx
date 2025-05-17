@@ -6,10 +6,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Button, FormControl, IconButton, InputLabel, Menu, MenuItem, Select, styled, TableFooter, TablePagination } from '@mui/material';
-import TablePaginationActions from '@mui/material/TablePagination/TablePaginationActions';
+import {  FormControl, IconButton,  MenuItem, Select, styled} from '@mui/material';
+
 import { useAppDispatch, useAppSelector } from '../../../Redux Toolkit/Store';
-import { fetchSellers, selectSellers, updateSellerAccountStatus } from '../../../Redux Toolkit/Seller/sellerSlice';
+
 import { Coupon } from '../../../types/couponTypes';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { deleteCoupon } from '../../../Redux Toolkit/Admin/AdminCouponSlice';
@@ -48,9 +48,9 @@ const accountStatuses = [
 
 
 export default function CouponTable() {
-    const [page, setPage] = React.useState(0);
+    
     const [status, setStatus] = React.useState(accountStatuses[0].status)
-    const { sellers, adminCoupon } = useAppSelector(store => store)
+    const {  adminCoupon } = useAppSelector(store => store)
     const dispatch = useAppDispatch();
 
     const handleDeleteCoupon = (id:number) => {

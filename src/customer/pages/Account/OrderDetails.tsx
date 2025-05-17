@@ -8,7 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 const OrderDetails = () => {
   const dispatch = useAppDispatch()
-  const { cart, auth, orders } = useAppSelector(store => store);
+  const {  auth, orders } = useAppSelector(store => store);
   const { orderItemId, orderId } = useParams()
   const navigate = useNavigate();
 

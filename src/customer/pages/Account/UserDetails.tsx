@@ -1,17 +1,8 @@
 import {
-  Alert,
-  Avatar,
-  Box,
-  Button,
   Divider,
-  Modal,
-  Snackbar,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import EditIcon from "@mui/icons-material/Edit";
 import ProfileFildCard from "../../../seller/pages/Account/ProfileFildCard";
 import { useAppSelector } from "../../../Redux Toolkit/Store";
-import { style } from "../../../seller/pages/Account/Profile";
 
 const UserDetails = () => {
   const { user } = useAppSelector((store) => store);

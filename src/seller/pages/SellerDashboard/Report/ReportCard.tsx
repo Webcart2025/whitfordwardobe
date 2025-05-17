@@ -1,5 +1,3 @@
-import React from 'react'
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import "./ReportCard.css"
 
 

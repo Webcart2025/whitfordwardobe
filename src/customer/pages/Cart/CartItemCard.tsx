@@ -6,7 +6,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { CartItem } from '../../../types/cartTypes';
 import { useAppDispatch } from '../../../Redux Toolkit/Store';
 import { deleteCartItem, updateCartItem } from '../../../Redux Toolkit/Customer/CartSlice';
-import { useAppSelector } from '../../../Redux Toolkit/Store';
 
 interface CartItemProps {
     item: CartItem

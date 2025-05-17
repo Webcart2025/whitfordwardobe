@@ -13,7 +13,7 @@ const SellingChart = ({chartType}:{chartType:string}) => {
       dispatch(fetchRevenueChart({type:chartType}))
     }
     
-  },[chartType])
+  },[chartType , dispatch])
     // console.log("daily revenue chart ****** ",revenueChart.dailyRevenue)
     return (
       <ResponsiveContainer width="100%" height="100%">

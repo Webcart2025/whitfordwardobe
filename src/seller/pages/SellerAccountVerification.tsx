@@ -8,9 +8,9 @@ const SellerAccountVerification = () => {
   const navigate=useNavigate()
   const dispatch=useAppDispatch();
 
-  useEffect(()=>{
-    dispatch(verifySellerEmail({otp:Number(otp),navigate}))
-  },[otp])
+useEffect(() => {
+  dispatch(verifySellerEmail({ otp: Number(otp), navigate }));
+}, [otp, dispatch, navigate]);
 
 
   return (

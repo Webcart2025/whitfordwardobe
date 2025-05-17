@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
-import Demo from "../../components/Demo/Demo";
+
 import SellingChart from "./SellingChart";
 import { useAppDispatch, useAppSelector } from "../../../Redux Toolkit/Store";
 import { fetchSellerReport } from "../../../Redux Toolkit/Seller/sellerSlice";
 import ReportCard from "./Report/ReportCard";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import {
-  Box,
   FormControl,
   InputLabel,
-  Menu,
   MenuItem,
   Select,
   SelectChangeEvent,
@@ -28,7 +26,7 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(fetchSellerReport(localStorage.getItem("jwt") || ""));
-  }, []);
+  }, [dispatch]);
 
   const handleChange = (event: SelectChangeEvent) => {
     setChartType(event.target.value as string);
@@ -39,7 +37,7 @@ const HomePage = () => {
         <div className="col-span-4 md:col-span-2 lg:col-span-1">
           <ReportCard
             icon={<AccountBalanceIcon />}
-            value={"$" + "" + sellers.report?.totalEarnings}
+            value={`$${sellers.report?.totalEarnings ?? 0}`}
             title={"Total Earnings"}
           />
         </div>

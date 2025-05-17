@@ -1,6 +1,6 @@
 import { Backdrop, Button, CircularProgress } from "@mui/material";
-import React, { useEffect } from "react";
-import store, { useAppDispatch, useAppSelector } from "../../../Redux Toolkit/Store";
+import  { useEffect } from "react";
+import  { useAppDispatch, useAppSelector } from "../../../Redux Toolkit/Store";
 import { paymentSuccess } from "../../../Redux Toolkit/Customer/OrderSlice";
 import { useLocation, useNavigate } from "react-router-dom";
 
